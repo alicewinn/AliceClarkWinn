@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Author Resources & Toolkits | Alice Clark Winn</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Additional Dedicated Resource Page Styling */
+        .resource-card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+        .resource-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 34px 28px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 20px var(--shadow);
+            transition: var(--transition);
+        }
+        .resource-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px var(--shadow);
+        }
+        .resource-card-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--cream);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold-dark);
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+        }
+        .resource-badge {
+            display: inline-block;
+            background: var(--navy);
+            color: var(--gold);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 4px 12px;
+            border-radius: var(--radius-full);
+            margin-bottom: 14px;
+            width: fit-content;
+        }
+        .resource-card h3 {
+            font-size: 1.25rem;
+            color: var(--navy);
+            margin-bottom: 12px;
+            line-height: 1.35;
+        }
+        .resource-card p {
+            font-size: 0.93rem;
+            color: var(--text);
+            line-height: 1.75;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        .resource-features {
+            margin-bottom: 24px;
+            border-top: 1px solid var(--border);
+            padding-top: 16px;
+        }
+        .resource-features li {
+            font-size: 0.86rem;
+            color: var(--text-light);
+            padding: 5px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .resource-features li i {
+            color: var(--gold-dark);
+            font-size: 0.8rem;
+        }
+        .article-guide-section {
+            padding: 100px 0;
+            background: var(--cream);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        .article-guide-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .article-guide-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 38px 32px;
+            box-shadow: 0 4px 15px var(--shadow);
+            transition: var(--transition);
+        }
+        .article-guide-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-4px);
+        }
+        .article-guide-card h3 {
+            font-size: 1.35rem;
+            color: var(--navy);
+            margin-bottom: 14px;
+            line-height: 1.35;
+        }
+        .article-guide-card p {
+            font-size: 0.95rem;
+            color: var(--text);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+        .checklist-preview-section {
+            padding: 100px 0;
+            background: var(--white);
+        }
+        .checklist-steps-container {
+            max-width: 900px;
+            margin: 40px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .checklist-step-box {
+            background: var(--cream);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 24px 28px;
+            border-left: 4px solid var(--gold);
+        }
+        .checklist-step-box h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem;
+            color: var(--navy);
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .checklist-step-box h4 span {
+            font-size: 0.8rem;
+            color: var(--gold-dark);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .checklist-step-box p {
+            font-size: 0.92rem;
+            color: var(--text);
+            line-height: 1.7;
+            margin: 0;
+        }
+        @media (max-width: 1024px) {
+            .resource-card-grid { grid-template-columns: 1fr 1fr; }
+            .article-guide-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            .resource-card-grid { grid-template-columns: 1fr; }
+            .checklist-step-box h4 { flex-direction: column; align-items: flex-start; gap: 4px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Alice<span class="logo-dot">.</span>Winn</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="case-studies.html">Case Studies</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="resources.html" class="active">Resources</a></li>
+                <li><a href="contact.html" class="nav-cta">Written Inquiry</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="section-label">FREE AUTHOR TOOLKITS & GUIDES</div>
+            <h1 class="page-hero-title">Institutional Book Marketing Knowledge,<br><span class="text-accent">Made Completely Free.</span></h1>
+            <p class="page-hero-subtitle">Download the exact operational checklists, direct-response blurb templates, metadata formulas, and ad budget calculators I use daily with my private author clients.</p>
+        </div>
+    </section>
+
+    <!-- FEATURED LEAD MAGNET / CHECKLIST DOWNLOAD -->
+    <section class="lead-magnet-section" id="checklist">
+        <div class="container">
+            <div class="lead-magnet-wrapper">
+                <div class="lead-magnet-content">
+                    <div class="lead-magnet-badge">FEATURED 2026 MASTER GUIDE</div>
+                    <h2>The Ultimate 90-Day Book Launch Master Checklist</h2>
+                    <p>The exact day-by-day operational timeline I deploy for every private client launch. A comprehensive 25-page operational PDF covering pre-order pacing, KDP backend keyword indexation, ARC recruitment swipe files, and launch-week ad bidding formulas.</p>
+                    
+                    <ul class="lead-magnet-list">
+                        <li><i class="fas fa-check-circle"></i> Complete 90-day day-by-day launch operational calendar</li>
+                        <li><i class="fas fa-check-circle"></i> The 7 backend metadata indexing mistakes killing Amazon search visibility</li>
+                        <li><i class="fas fa-check-circle"></i> Advance Reader Copy (ARC) team recruitment and review-chaser email templates</li>
+                        <li><i class="fas fa-check-circle"></i> Ad budget allocation formula (Amazon Sponsored Ads vs. Meta vs. BookBub)</li>
+                        <li><i class="fas fa-check-circle"></i> 5 automated email sequences every fiction and non-fiction author must own</li>
+                        <li><i class="fas fa-check-circle"></i> BookTok hook formulas and viral formatting scripts for 2026</li>
+                        <li><i class="fas fa-check-circle"></i> Series read-through optimization and back-matter linking architecture</li>
+                        <li><i class="fas fa-check-circle"></i> Post-launch sustainment playbook to prevent the dreaded 30-day sales cliff</li>
+                    </ul>
+
+                    <form class="lead-magnet-form" action="https://formspree.io/f/xjykknnz" method="POST">
+                        <input type="text" name="name" placeholder="First Name" required>
+                        <input type="email" name="email" placeholder="Email Address (Where to send the PDF)" required>
+                        <input type="hidden" name="form_type" value="2026 Master Launch Checklist Download">
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-download"></i> Download Free 25-Page Guide</button>
+                    </form>
+                    <p class="lead-magnet-trust"><i class="fas fa-lock"></i> Join 8,000+ authors. 100% confidential. No spam. One-click unsubscribe at any time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FREE TOOLKIT & DOWNLOAD LIBRARY -->
+    <section class="services-full" style="background: var(--white);">
+        <div class="container">
+            <div class="section-label">AUTHOR TOOLKITS</div>
+            <h2 class="section-title">Free Frameworks & Operational Swipe Files</h2>
+            <p class="section-subtitle">Every tool below is designed to eliminate guesswork, fix retail conversion leaks, and help you run profitable, data-backed marketing campaigns.</p>
+
+            <div class="resource-card-grid">
+
+                <!-- TOOL 1 -->
+                <div class="resource-card">
+                    <div class="resource-card-icon"><i class="fas fa-tags"></i></div>
+                    <span class="resource-badge">METADATA & SEO</span>
+                    <h3>KDP 7-Keyword Box Formula & Dossier</h3>
+                    <p>A step-by-step formula for structuring your Amazon backend keyword fields. Learn how to combine high-intent reader search terms, subgenre tropes, and competitive comp phrases without repeating words or wasting space.</p>
+                    <div class="resource-features">
+                        <li><i class="fas fa-check"></i> 50-character string formatting guide</li>
+                        <li><i class="fas fa-check"></i> Category threshold calculation sheet</li>
+                        <li><i class="fas fa-check"></i> Negative keyword list to prevent ad waste</li>
+                    </div>
+                    <a href="#checklist" class="service-link">Download in Master Toolkit <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- TOOL 2 -->
+                <div class="resource-card">
+                    <div class="resource-card-icon"><i class="fas fa-pen-fancy"></i></div>
+                    <span class="resource-badge">COPYWRITING</span>
+                    <h3>High-Tension Blurb & Hook Swipe File</h3>
+                    <p>Stop losing browsing readers. This swipe file breaks down the exact PAS (Problem-Agitation-Solution) and AIDA copywriting frameworks used to craft book blurbs that double Amazon page conversion rates overnight.</p>
+                    <div class="resource-features">
+                        <li><i class="fas fa-check"></i> 15 headline hook opening templates</li>
+                        <li><i class="fas fa-check"></i> HTML formatting snippets for KDP descriptions</li>
+                        <li><i class="fas fa-check"></i> Fiction vs. Non-fiction blurb architecture</li>
+                    </div>
+                    <a href="#checklist" class="service-link">Download in Master Toolkit <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- TOOL 3 -->
+                <div class="resource-card">
+                    <div class="resource-card-icon"><i class="fas fa-users"></i></div>
+                    <span class="resource-badge">REVIEW GENERATION</span>
+                    <h3>ARC Recruitment & Review-Chaser System</h3>
+                    <p>Exact, word-for-word email templates to recruit 50 to 200+ advance readers from your newsletter, social channels, and book communities, plus automated reminder sequences that yield an 80%+ review submission rate on launch day.</p>
+                    <div class="resource-features">
+                        <li><i class="fas fa-check"></i> 3-part ARC invitation email sequence</li>
+                        <li><i class="fas fa-check"></i> Pre-launch review reminder template</li>
+                        <li><i class="fas fa-check"></i> Google Sheets review tracking spreadsheet</li>
+                    </div>
+                    <a href="#checklist" class="service-link">Download in Master Toolkit <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- TOOL 4 -->
+                <div class="resource-card">
+                    <div class="resource-card-icon"><i class="fas fa-calculator"></i></div>
+                    <span class="resource-badge">PAID ADVERTISING</span>
+                    <h3>Amazon & Meta Ads ROI Calculator</h3>
+                    <p>A simple, plug-and-play mathematical model to calculate your break-even Cost-Per-Click (CPC), Target Advertising Cost of Sales (TACoS), and series read-through multiplier before spending a single dollar on ads.</p>
+                    <div class="resource-features">
+                        <li><i class="fas fa-check"></i> Royalty read-through value formula</li>
+                        <li><i class="fas fa-check"></i> Maximum allowable CPC calculation</li>
+                        <li><i class="fas fa-check"></i> Ad scaling & bid reduction rulebook</li>
+                    </div>
+                    <a href="#checklist" class="service-link">Download in Master Toolkit <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- TOOL 5 -->
+                <div class="resource-card">
+                    <div class="resource-card-icon"><i class="fas fa-envelope-open-text"></i></div>
+                    <span class="resource-badge">EMAIL MARKETING</span>
+                    <h3>6-Part Reader Magnet Welcome Sequence</h3>
+                    <p>The exact email onboarding sequence that turns free reader magnet downloaders into rabid buyers of your paid catalog on autopilot. Plug in your character details, genre lore, and backlist links.</p>
+                    <div class="resource-features">
+                        <li><i class="fas fa-check"></i> Welcome email & freebie delivery copy</li>
+                        <li><i class="fas fa-check"></i> Author worldbuilding & story teaser emails</li>
+                        <li><i class="fas fa-check"></i> High-converting Book 1 discount pitch script</li>
+                    </div>
+                    <a href="#checklist" class="service-link">Download in Master Toolkit <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- TOOL 6 -->
+                <div class="resource-card">
+                    <div class="resource-card-icon"><i class="fab fa-tiktok"></i></div>
+                    <span class="resource-badge">BOOKTOK & SOCIAL</span>
+                    <h3>BookTok & Reels 3-Second Hook Guide</h3>
+                    <p>A breakdown of the 20 highest-performing visual hook frameworks and text overlays on BookTok and Instagram Reels for authors. Learn how to showcase tropes, emotional micro-tropes, and character dynamics.</p>
+                    <div class="resource-features">
+                        <li><i class="fas fa-check"></i> 20 viral text-on-screen hook formulas</li>
+                        <li><i class="fas fa-check"></i> Audio selection & trending sound strategy</li>
+                        <li><i class="fas fa-check"></i> Micro-influencer DM pitch template</li>
+                    </div>
+                    <a href="https://www.tiktok.com/@aliceclarkwinn12" target="_blank" rel="noopener noreferrer" class="service-link">Follow Alice on TikTok <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- IN-DEPTH STRATEGY ARTICLES & CORE GUIDES -->
+    <section class="article-guide-section">
+        <div class="container">
+            <div class="section-label">EXPERT ARTICLES</div>
+            <h2 class="section-title">Deep-Dive Publishing Masterclasses</h2>
+            <p class="section-subtitle">No fluff or vague generalities. These comprehensive guides provide the exact technical blueprints needed to master the modern retail landscape.</p>
+
+            <div class="article-guide-grid">
+
+                <div class="article-guide-card">
+                    <h3>The Anatomy of an Amazon Category #1 Bestseller Page</h3>
+                    <p>Most authors treat their Amazon product page like a digital library card catalog. In reality, it is a high-stakes, direct-response landing page that must convert cold traffic into paid buyers within 4.2 seconds.</p>
+                    <p>In this masterclass, I dissect the five non-negotiable conversion elements of a bestselling listing: typography-led 3D cover mockups, the tension-hook opening blurb sentence, mobile-first formatting, modular A+ Content comparison matrices, and social proof density.</p>
+                    <a href="#checklist" class="service-link">Get the Full Checklist Breakdown <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="article-guide-card">
+                    <h3>How to Calculate True Series Read-Through & Lifetime Value (LTV)</h3>
+                    <p>If you are advertising Book 1 at a loss without knowing your series read-through rate, you are flying blind. Calculating read-through is the single most critical mathematical skill for fiction authors managing multiple titles.</p>
+                    <p>Learn how to calculate your drop-off rates between Book 1, Book 2, and Box Sets, how page reads (KENP) factor into total reader worth, and how a 35% read-through rate allows you to aggressively outbid competitors on Amazon Ads while remaining highly profitable.</p>
+                    <a href="#checklist" class="service-link">Get the ROI Calculator <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="article-guide-card">
+                    <h3>The 5 Most Expensive Metadata Mistakes on KDP</h3>
+                    <p>Amazon's A10 algorithm relies entirely on structured indexing signals to decide which books to recommend in the "Customers Also Bought" and search suggestion feeds. Making basic metadata mistakes will permanently suppress your organic visibility.</p>
+                    <p>This guide highlights the five fatal errors: keyword duplication across title and backend boxes, targeting ultra-broad search phrases with zero purchase intent, miscategorization into dead BISAC codes, ignoring mobile character limits, and weak subtitle architecture.</p>
+                    <a href="#checklist" class="service-link">Download the KDP Keyword Dossier <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="article-guide-card">
+                    <h3>Why BookBub Featured Deals Get Rejected (And How to Fix It)</h3>
+                    <p>Securing a coveted BookBub Featured Deal can move 3,000 to 15,000+ copies in 48 hours, but the editorial team rejects over 80% of submissions. The secret to acceptance is not luck—it is algorithmic proof of retail conversion velocity.</p>
+                    <p>Discover how to optimize your review velocity, price history, international store availability, and submission comments to dramatically elevate your approval odds on your next promotional discount window.</p>
+                    <a href="#checklist" class="service-link">Read the BookBub Prep Guide <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE 90-DAY CHECKLIST ROADMAP PREVIEW -->
+    <section class="checklist-preview-section">
+        <div class="container">
+            <div class="section-label">OPERATIONAL ROADMAP</div>
+            <h2 class="section-title">The 90-Day Bestseller Timeline Preview</h2>
+            <p class="section-subtitle">A high-level preview of the exact operational milestone schedule documented inside the free 25-page launch checklist download.</p>
+
+            <div class="checklist-steps-container">
+
+                <div class="checklist-step-box">
+                    <h4>Phase 1: Foundation & Market Audit <span>Weeks 12 to 8 Before Release</span></h4>
+                    <p>Audit top 20 comp titles in your subgenre. Extract high-performing search phrases. Finalize professional typography-aligned cover art. Construct your high-tension reader magnet and configure automated email delivery sequences.</p>
+                </div>
+
+                <div class="checklist-step-box">
+                    <h4>Phase 2: Metadata & ARC Recruitment <span>Weeks 8 to 4 Before Release</span></h4>
+                    <p>Rewrite Amazon description using AIDA/PAS direct-response formulas. Assign 10 achievable micro-categories. Deploy 3-part ARC recruitment sequence across your email list and genre reviewer networks to lock in 50–150 advance readers.</p>
+                </div>
+
+                <div class="checklist-step-box">
+                    <h4>Phase 3: Pre-Order Ramp & Asset Assembly <span>Weeks 4 to 1 Before Release</span></h4>
+                    <p>Design Amazon A+ Content comparison modules. Pre-build tiered Amazon Sponsored Products and Meta Ad campaigns. Distribute digital ARC review copies with clear deadline reminders. Schedule promo site submissions.</p>
+                </div>
+
+                <div class="checklist-step-box">
+                    <h4>Phase 4: Launch Week Ad Blitz <span>Release Week (Days 1 to 7)</span></h4>
+                    <p>Deploy launch day email broadcast to author newsletter. Launch multi-tiered Amazon manual keyword and comp-product ad campaigns. Send day-3 review reminders to ARC team. Monitor category bestseller ranks and prune negative search terms daily.</p>
+                </div>
+
+                <div class="checklist-step-box">
+                    <h4>Phase 5: Post-Launch Sustainment <span>Weeks 2 to 4 Post-Release</span></h4>
+                    <p>Transition ad campaigns into evergreen auto/manual scaling structures. Review read-through rates to backlist titles. Deploy post-launch review chaser sequence to verified buyers. Lock in discount promos to prevent rank drop-offs.</p>
+                </div>
+
+            </div>
+
+            <div class="center-btn">
+                <a href="#checklist" class="btn btn-primary btn-large"><i class="fas fa-file-pdf"></i> Download Complete 25-Page Launch PDF</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHOTO BANNER QUOTE -->
+    <section class="photo-banner">
+        <div class="photo-banner-overlay"></div>
+        <div class="container">
+            <div class="photo-banner-content">
+                <img src="images/alice.jpg" alt="Alice Clark Winn" class="photo-banner-img">
+                <div class="photo-banner-text">
+                    <h2>"Knowledge is the great equalizer in modern publishing. When you understand the algorithms, you no longer have to fear them."</h2>
+                    <p>Alice Clark Winn, Senior Book Marketing Strategist</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESOURCE FAQ -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-label">FREQUENTLY ASKED QUESTIONS</div>
+            <h2 class="section-title">Everything You Need to Know<br><span class="text-accent">About These Free Toolkits</span></h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Are these checklists really 100% free?</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, completely. There are no hidden fees or locked paywalls. Simply enter your name and email address, and the complete 25-page PDF launch roadmap will be delivered immediately to your inbox. You will also receive my weekly written marketing breakdowns filled with actionable data strategies.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I use these templates for both fiction and non-fiction titles?</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely. The core conversion principles—keyword intent, blurb tension, ARC team management, category threshold analysis, and ad bidding algorithms—apply equally to thrilling novels, epic fantasy series, memoirs, business handbooks, and self-help titles.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What if I need hands-on help executing these strategies?</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>If you prefer to have an experienced specialist build and manage your entire marketing infrastructure, you can review my <a href="services.html" style="color: var(--gold); text-decoration: underline;">full range of marketing services</a> or submit a <a href="contact.html" style="color: var(--gold); text-decoration: underline;">Written Inquiry</a>. I will audit your book and provide a tailored operational proposal.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How often are these resources updated for algorithm changes?</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>All toolkits, keyword formulas, and ad guides are updated quarterly to reflect the latest changes to Amazon's A10 ranking algorithm, KDP category management rules, Meta Pixel privacy updates, and BookTok viral video distribution standards.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CALL TO ACTION -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Ready for a Custom Strategy Built Specifically for Your Book?</h2>
+            <p>While free toolkits give you the roadmap, having a dedicated strategist manage your keywords, blurbs, ad campaigns, and launch logistics ensures flawless execution. Submit your book details for a personalized, 100% written evaluation.</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="btn btn-primary btn-large"><i class="fas fa-envelope"></i> Request Your Written Proposal</a>
+                <a href="case-studies.html" class="btn btn-outline btn-large"><i class="fas fa-chart-line"></i> View Verifiable Client Results</a>
+            </div>
+            <p class="cta-reminder"><i class="fas fa-file-alt"></i> 100% written via email. No phone calls. Complete documentation and transparency.</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Alice<span class="logo-dot">.</span>Winn</h3>
+                    <p>Book marketing specialist with 10+ years of experience helping 200+ authors across 25+ genres sell more books and build sustainable writing careers. 100% written, email-based methodology. No calls, no meetings, just results.</p>
+                    <p class="footer-email"><i class="fas fa-envelope"></i> aliceclarkwinn@gmail.com</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html">Book Launch Management</a></li>
+                        <li><a href="services.html">Amazon Ads Management</a></li>
+                        <li><a href="services.html">Meta Ads Management</a></li>
+                        <li><a href="services.html">BookBub Ads</a></li>
+                        <li><a href="services.html">Blurb Rewriting</a></li>
+                        <li><a href="services.html">Email Marketing</a></li>
+                        <li><a href="services.html">Backlist Revitalization</a></li>
+                        <li><a href="services.html">A+ Content Design</a></li>
+                        <li><a href="services.html">ARC Team Building</a></li>
+                        <li><a href="services.html">Author Coaching</a></li>
+                        <li><a href="services.html">View All 35+ Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="resources.html">Free Launch Checklist</a></li>
+                        <li><a href="case-studies.html">Case Studies</a></li>
+                        <li><a href="reviews.html">Author Reviews</a></li>
+                        <li><a href="about.html">About Alice</a></li>
+                        <li><a href="contact.html">Written Inquiry</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <div class="social-icons">
+                        <a href="https://www.tiktok.com/@aliceclarkwinn12" target="_blank" rel="noopener noreferrer" title="Follow on TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                    <div class="footer-newsletter">
+                        <p>Join 8,000+ authors getting weekly marketing tips:</p>
+                        <form class="footer-form" action="https://formspree.io/f/xjykknnz" method="POST">
+                            <input type="email" name="email" placeholder="Your email" required>
+                            <input type="hidden" name="form_type" value="Newsletter Signup - Resources Page">
+                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Alice Clark Winn. All Rights Reserved. Made with love and way too much Earl Grey tea.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MAIN JAVASCRIPT -->
+    <script src="js/main.js"></script>
+</body>
+</html>
