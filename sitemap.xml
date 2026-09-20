@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <!-- 1. Homepage -->
+    <url>
+        <loc>https://aliceclarkwinn.com/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- 2. Services & Packages -->
+    <url>
+        <loc>https://aliceclarkwinn.com/services.html</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- 3. Case Studies & Analytics -->
+    <url>
+        <loc>https://aliceclarkwinn.com/case-studies.html</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- 4. Author Reviews -->
+    <url>
+        <loc>https://aliceclarkwinn.com/reviews.html</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- 5. Free Author Resources & Toolkits -->
+    <url>
+        <loc>https://aliceclarkwinn.com/resources.html</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- 6. About Alice Clark Winn -->
+    <url>
+        <loc>https://aliceclarkwinn.com/about.html</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- 7. Written Inquiry / Contact -->
+    <url>
+        <loc>https://aliceclarkwinn.com/contact.html</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+</urlset>
